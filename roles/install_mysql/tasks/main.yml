@@ -1,0 +1,12 @@
+    - name: Install mySQL repo
+      yum: name=http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm state=present
+
+    - name: Install mySQL
+      yum: pkg={{ item }}
+      with_items:
+        - mysql-community-server
+        - mysql-community-client
+        - MySQL-python
+
+    - name: start mySQL service
+      action: service name=mysqld state=started

@@ -1,0 +1,8 @@
+- hosts: tag_Managed_true
+  become: true
+  gather_facts: true
+
+  roles:
+    - update_hostname
+    - install_nginx
+      when:"{{  hostvars[inventory_hostname].tags.Name }}" == "nginx"
