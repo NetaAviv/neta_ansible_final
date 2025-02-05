@@ -6,3 +6,5 @@
     - update_hostname
     - install_nginx
       when:"{{  hostvars[inventory_hostname].tags.Name }}" == "nginx"
+    - install_mysql
+      when:"{{  hostvars[inventory_hostname].tags.Name }}" == "mysql"
